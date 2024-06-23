@@ -1,6 +1,14 @@
 ref/
 *.pdf
 
+# LaTeX related #
+*.aux
+*.fdb_latexmk
+*.fls
+*.out
+*.toc
+*.xdv
+
 # Compiled source #
 ###################
 *.com
