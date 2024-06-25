@@ -15,6 +15,10 @@
 		北京邮电大学2023-2024学年第二学期\
 		《形式语言与自动机》期中考试试题（A卷）
 	]
+
+	#text(
+		size: 12pt
+	)[重制：cppHusky]
 ]
 
 #set heading(numbering: none)
