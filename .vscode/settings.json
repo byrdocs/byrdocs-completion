@@ -8,7 +8,7 @@
 			]
 		},
 	],
-	"latex-workshop.latex.autoBuild.run": "onFileChange",
+	"latex-workshop.latex.autoBuild.run": "never",
 	"latex-workshop.latex.autoClean.run": "onSucceeded",
 	"latex-workshop.intellisense.package.extra": [
 		"fancyhdr",

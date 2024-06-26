@@ -1,0 +1,156 @@
+\documentclass[12pt]{ctexart}
+\usepackage{amsmath}
+\usepackage{booktabs}
+\usepackage{enumitem}
+\usepackage{esint}
+\usepackage{fancyhdr}
+\usepackage{float}
+\usepackage{fontspec}
+\usepackage{geometry}
+\usepackage{import}
+\usepackage{indentfirst}
+\usepackage{lastpage}
+\usepackage{physics}
+\usepackage{setspace}
+\usepackage{subcaption}
+\usepackage{tikz}
+\usetikzlibrary{shapes}
+\usepackage{titlesec}
+\usepackage{titletoc}
+\usepackage{wrapfig}
+\usepackage{xcolor}
+\usepackage{zhnumber}
+\geometry{a4paper,top=2cm,bottom=3.2cm,inner=2.5cm,outer=3.2cm}
+\setmonofont{Fira Code}
+\setCJKmainfont{Noto Serif CJK SC}
+\setCJKsansfont{Noto Sans CJK SC}
+\setCJKmonofont{Fira Code}
+\DeclareMathOperator{\ee}{\mathrm{e}}
+\DeclareMathOperator{\ii}{\mathrm{i}}
+\DeclareMathOperator{\jj}{\mathrm{jj}}
+\renewcommand{\thesection}{\zhnum{section}}
+\titleformat{\section}{\normalsize}{\bfseries\thesection、}{0.25em}{}
+\titleformat{\subsection}{\normalsize}{\bfseries\arabic{subsection}.}{1em}{}
+\titleformat{\subsubsection}{\normalsize}{\bfseries\hspace{2em}(\arabic{subsubsection})}{.5em}{}
+\allowdisplaybreaks[4]
+\setstretch{1.5}
+\setlength{\parskip}{0.4em}
+\everymath{\displaystyle}
+\title{北京邮电大学2023-2024学年第二学期\\《高等数学（下）》期末考试试题（A卷）\\参考答案}
+\author{制作：cppHusky}
+\date{}
+\begin{document}
+\pagestyle{fancy}
+\fancyhf{}
+\fancyhead[L]{\footnotesize\sffamily 2023-2024《高等数学（下）》期末A卷 参考答案}
+\fancyhead[R]{\footnotesize\sffamily\textit{cppHusky}制作}
+\fancyfoot[C]{\footnotesize\sffamily 第\thepage 页，共\pageref{LastPage} 页}
+\maketitle
+\thispagestyle{fancy}
+\section{填空题}
+\subsection{$\frac{1}{1-x}\quad x\in\left[-1,1\right)$}
+\subsection{$\frac{\pi^{2}}{4}+1$}
+\subsection{$\frac{x-\frac{3}{\sqrt{2}}}{-\frac{3}{\sqrt{2}}}=\frac{y-\frac{3}{\sqrt{2}}}{\frac{3}{\sqrt{2}}}=\frac{z-\pi}{4}$}
+\subsection{$\frac{\pi}{2}\ln{2}$}
+\subsection{$4\over3$}
+\subsection{$\frac{13\sqrt{5}}{8}+\frac{3}{16}\ln(2+\sqrt{5})$}
+\subsection{$-\pi$}
+\subsection{$-2\pi ab$}
+\subsection{$\frac{\pi a^4}{2}$}
+\subsection{$0$}
+\pagebreak
+\section{}
+\begin{align*}
+	z\ln{z}={}&x\ln{x}+y\ln{y}\\
+	(\ln{z}+1)\dd{z}={}&(\ln{x}+1)\dd{x}+(\ln{y}+1)\dd{y}\\
+	\dd{z}={}&\frac{\ln{x}+1}{\ln{z}+1}\dd{x}+\frac{\ln{y}+1}{\ln{z}+1}\dd{y}
+\end{align*}
+所以$\pdv{z}{x}=\frac{\ln{x}+1}{\ln{z}+1}$, $\pdv{z}{y}=\frac{\ln{y}+1}{\ln{z}+1}$. 而
+\begin{align*}
+	\pdv{z}{x}{y}={}&-\frac{\ln{x}+1}{\qty(\ln{z}+1)^2}\pdv{z}(\ln{z}+1)\\
+	={}&-\frac{\ln{x}+1}{\qty(\ln{z}+1)^2}\frac{1}{z}\pdv{z}{y}\\
+	={}&-\frac{\qty(\ln{x}+1)\qty(\ln{y}+1)}{z\qty(\ln{z}+1)^3}
+\end{align*}
+\section{}
+假设这个任意点为$A(x_0,y_0,z_0)$, 那么在该点处$z(x,y)$的偏导数分别是
+\begin{align*}
+	\pdv{z}{x}={}&\ee^{x_0\over y_0}\qty(1+\frac{x_0}{y_0})\\
+	\pdv{z}{y}={}&-\frac{x_0^{2}}{y_0^{2}}\ee^{\frac{x_0}{y_0}}
+\end{align*}
+于是切平面方程为
+\[\qty(1+\frac{x_0}{y_0})(x-x_0)-\frac{x_{0}^{2}}{y_{0}^{2}}(y-y_0)+x_0=0\]
+代入原点$(0,0)$发现上式成立, 所以这个切平面是经过原点的.\par
+\section{}
+用柱坐标求解. 令$\begin{cases}
+	x=\rho\cos\theta\\
+	y=\rho\sin\theta\\
+	z=z
+\end{cases}$, 
+所以
+\begin{align*}
+	\iiint_{\Omega}\ee^{3Rz^{2}-z^{3}}\dd{x}\dd{y}\dd{z}={}&\int_{0}^{2R}\ee^{3Rz^{2}-z^{3}}\dd{z}\int_{0}^{2\pi}\dd{\theta}\int_{0}^{\sqrt{2Rz-z^2}}\rho\dd{\rho}\\
+	={}&\pi\int_{0}^{2R}\ee^{3Rz^{2}-z^{3}}(2Rz-z^{2})\dd{z}\\
+	={}&\frac{\pi}{3}\eval{\ee^{3Rz^{2}-z^{3}}}_{0}^{2R}\\
+	={}&\frac{\pi}{3}\ee^{4R^{3}}
+\end{align*}
+\section{}
+考虑使用格林公式, 所以先为积分路径补上一段$(0,3\pi)$到$(0,2\pi)$的直线路径$L_1$. 在这段路径上, $J=\int_{L_1}\sqrt{x^{2}+y^{2}}\dd{y}=-\frac{5\pi^{2}}{2}$.\par
+现在对闭合路径$C=L+L_1$可以使用格林公式:
+\begin{align*}
+	\oint_{C}x\qty[\ln(y+\sqrt{x^{2}+y^{2}})-\pi y]\dd{x}+\sqrt{x^{2}+y^{2}}\dd{y}={}&\iint_{\Sigma}\pi x\dd{S}\\
+	={}&\int_{2\pi}^{3\pi}\dd{y}\int_{0}^{\sin{y}}\pi x\dd{x}\\
+	={}&\frac{\pi}{2}\int_{2\pi}^{3\pi}\sin^{2}{y}\dd{y}\\
+	={}&\frac{\pi^{2}}{4}
+\end{align*}
+因此$I+J=\frac{\pi^{2}}{4}$, 从而可知$I=\frac{3\pi^{2}}{2}$.\par
+\section{}
+先把积分区域投影到$xOy$平面上.
+\begin{align*}
+	I=\iint_{\Sigma}(x^{2}+y^{2})z\dd{S}={}&\iint_{S}(x^{2}+y^{2})\sqrt{1-x^2+y^2}\frac{1}{\sqrt{1-x^2-y^2}}\dd{x}\dd{y}\\
+	={}&\iint_{S}(x^{2}+y^{2})\dd{x}\dd{y}
+\end{align*}
+接下来再用极坐标换元即可:
+\begin{align*}
+	I={}&\iint_{S'}\rho^{3}\dd{\rho}\dd{\theta}\\
+	={}&\int_{-\frac{\pi}{2}}^{\frac{\pi}{2}}\dd{\theta}\int_{0}^{R\cos\theta}\rho^{3}\dd{\rho}\\
+	={}&\frac{R^{4}}{8}
+\end{align*}
+\section{}
+使用高斯公式,
+\begin{align*}
+	I=\oiint_{\Sigma}x(y^{2}+z^{2})\dd{y}\dd{z}={}&\iiint_{\Omega}(y^{2}+z^{2})\dd{V}
+\end{align*}
+然后用球坐标求解即可. 令$\begin{cases}
+	x=\rho\cos\varphi\\
+	y=\rho\cos\theta\sin\varphi\\
+	z=\rho\sin\theta\sin\varphi
+\end{cases}$, 所以
+\begin{align*}
+	I=\iiint_{\Omega}(y^{2}+z^{2})\dd{V}={}&\iiint_{\Omega'}\rho^{3}\sin^{2}\varphi\dd{\rho}\dd{\varphi}\dd{\theta}\\
+	={}&\int_{0}^{2\pi}\dd{\theta}\int_{0}^{R}\rho^{3}\dd{\rho}\int_{0}^{\pi}\sin^{2}{\varphi}\dd{\varphi}\\
+	={}&\frac{\pi R^{4}}{4}
+\end{align*}
+\section{}
+当$n$为奇数时, $\forall t\in\qty(n\pi,(n+1)\pi),\,\sin{t}<0$, 所以$\frac{\sin{t}}{\sqrt{t}}<0$, 进而$\int_{n\pi}^{(n+1)\pi}\frac{\sin{t}}{\sqrt{t}}\dd{t}<0$;\par
+同理, 当$n$为偶数时, 能证出$\int_{n\pi}^{(n+1)\pi}\frac{\sin{t}}{\sqrt{t}}\dd{t}>0$. 因此这个级数是交错级数. 为了证明它收敛, 考虑使用莱布尼兹定理.\par
+首先,
+\begin{align*}
+	\lim_{n\rightarrow\infty}\abs{\int_{n\pi}^{(n+1)\pi}\frac{\sin{t}}{\sqrt{t}}\dd{t}}\le{}&\lim_{n\rightarrow\infty}\int_{n\pi}^{(n+1)\pi}\frac{\dd{t}}{\sqrt{t}}\\
+	={}&\lim_{n\rightarrow\infty}\frac{2\pi}{\sqrt{(n+1)\pi}+\sqrt{n\pi}}=0
+\end{align*}
+然后, 
+\begin{align*}
+	{}&\abs{\int_{n\pi}^{(n+1)\pi}\frac{\sin{t}}{\sqrt{t}}\dd{t}}-\abs{\int_{(n+1)\pi}^{(n+2)\pi}\frac{\sin{t}}{\sqrt{t}}\dd{t}}\\
+	={}&\int_{n\pi}^{(n+1)\pi}\abs{\sin{t}}\qty(\frac{1}{\sqrt{t}}-\frac{1}{\sqrt{t+1}})\dd{t}>0
+\end{align*}
+说明前项的绝对值总是大于后项. 因此根据莱布尼兹定理, 级数$\sum_{n=1}^{\infty}\int_{n\pi}^{(n+1)\pi}\frac{\sin{t}}{\sqrt{t}}\dd{t}$ 收敛.\par
+接下来证明$\sum_{n=1}^{\infty}\abs{\int_{n\pi}^{(n+1)\pi}\frac{\sin{t}}{\sqrt{t}}\dd{t}}$发散:
+\begin{align*}
+	\abs{\int_{n\pi}^{(n+1)\pi}\frac{\sin{t}}{\sqrt{t}}\dd{t}}={}&\int_{n\pi}^{(n+1)\pi}\frac{\abs{\sin{t}}}{\sqrt{t}}\dd{t}\\
+	\ge{}&\int_{n\pi}^{(n+1)\pi}\frac{\abs{\sin{t}}}{\sqrt{(n+1)\pi}}\dd{t}\\
+	={}&\frac{1}{\sqrt{(n+1)\pi}}\int_{n\pi}^{(n+1)\pi}\abs{\sin{t}}\dd{t}\\
+	={}&\frac{2}{\sqrt{(n+1)\pi}}
+\end{align*}
+而$\sum_{n=1}^{\infty}\frac{2}{\sqrt{(n+1)\pi}}$是发散级数, 所以根据比较审敛法, $\sum_{n=1}^{\infty}\abs{\int_{n\pi}^{(n+1)\pi}\frac{\sin{t}}{\sqrt{t}}\dd{t}}$也发散.\par
+综上所述, 级数$\sum_{n=1}^{\infty}\int_{n\pi}^{(n+1)\pi}\frac{\sin{t}}{\sqrt{t}}\dd{t}$条件收敛.\par
+\end{document}
