@@ -123,7 +123,7 @@ Word 是大部分人最早接触，也是最容易上手的的排版工具。
 		<img alt="Download" src="https://img.shields.io/website?down_message=offline&label=download%20center&up_color=f86200&up_message=online&url=https%3a%2f%2fwww.wolfram.com%2fdownload-center%2fmathematica">
 	</a>
 	<a href="https://reference.wolfram.com/language">
-		<img alt="Documentation" src="https://img.shields.io/website?down_message=offline&label=Mathematica%20docs&up_color=d11b00&up_message=online&url=https%3A%2F%2Freference.wolfram.com%2Flanguage">
+		<img alt="Documentation" src="https://img.shields.io/website?down_message=offline&label=Mathematica%20docs&up_color=d11b00&up_message=online&url=https%3a%2f%2freference.wolfram.com%2flanguage"/>
 	</a>
 </p>
 
