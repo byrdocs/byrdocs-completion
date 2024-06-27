@@ -1,0 +1,194 @@
+\documentclass[12pt]{ctexart}
+\usepackage{amsmath}
+\usepackage{booktabs}
+\usepackage{pifont}
+\usepackage{enumitem}
+\usepackage{esint}
+\usepackage{fancyhdr}
+\usepackage{float}
+\usepackage{fontspec}
+\usepackage{geometry}
+\usepackage{hyperref}
+\usepackage{import}
+\usepackage{indentfirst}
+\usepackage{lastpage}
+\usepackage{nicematrix}
+\usepackage{physics}
+\usepackage{setspace}
+\usepackage{subcaption}
+\usepackage{tikz}
+\usetikzlibrary{shapes}
+\usepackage{titlesec}
+\usepackage{titletoc}
+\usepackage{wrapfig}
+\usepackage{xcolor}
+\usepackage{xparse}
+\usepackage{xstring}
+\usepackage{zhnumber}
+\geometry{a4paper,top=2cm,bottom=3.2cm,inner=2.5cm,outer=3.2cm}
+\setmonofont{Fira Code}
+\setCJKmainfont{Noto Serif CJK SC}
+\setCJKsansfont{Noto Sans CJK SC}
+\setCJKmonofont{Fira Code}
+\DeclareMathOperator{\ee}{\mathrm{e}}
+\DeclareMathOperator{\ii}{\mathrm{i}}
+\DeclareMathOperator{\jj}{\mathrm{jj}}
+\renewcommand{\thesection}{\zhnum{section}}
+\titleformat{\section}{\normalsize}{\bfseries\thesection、}{0.25em}{}
+\titleformat{\subsection}{\normalsize}{\bfseries\arabic{subsection}.}{1em}{}
+\titleformat{\subsubsection}{\normalsize}{\bfseries\hspace{2em}(\arabic{subsubsection})}{.5em}{}
+\allowdisplaybreaks[4]
+\setstretch{1.5}
+\setlength{\parskip}{0.4em}
+\everymath{\displaystyle}
+\NewDocumentCommand{\options}{O{4}mmmm}{
+	\IfEqCase{#1}{
+		{4}{
+			\begin{table}[H]
+				\centering
+				\begin{NiceTabular}[width=\linewidth]{@{}!{\qquad}*{4}{X[1,l]}}
+					A. #2 & B. #3 & C. #4 & D. #5
+				\end{NiceTabular}
+			\end{table}
+		}
+		{2}{
+			\begin{table}[H]
+				\centering
+				\begin{NiceTabular}[width=\linewidth]{@{}!{\qquad}*{2}{X[1,l]}}
+					A. #2 & B. #3 \\
+					C. #4 & D. #5
+				\end{NiceTabular}
+			\end{table}
+		}
+		{1}{
+			\begin{table}[H]
+				\centering
+				\begin{NiceTabular}[width=\linewidth]{@{}!{\qquad}X[1,l]}
+					A. #2 \\
+					B. #3 \\
+					C. #4 \\
+					D. #5
+				\end{NiceTabular}
+			\end{table}
+		}
+	}
+}
+\NewDocumentCommand{\blank}{}{\underline{\qquad}}
+
+\title{北京邮电大学2023-2024学年第二学期\\《高等数学A（下）》期中考试试题（A卷）}
+\author{重制：cppHusky}
+\date{}
+\begin{document}
+\pagestyle{fancy}
+\fancyhf{}
+\fancyhead[L]{\footnotesize\sffamily 2023-2024《高等数学A（下）》期中A卷}
+\fancyhead[R]{\footnotesize\sffamily \textit{cppHusky}重制}
+\fancyfoot[C]{\footnotesize\sffamily 第\thepage 页，共\pageref*{LastPage} 页}
+\fancyfoot[R]{\footnotesize \href{https://byrdocs.org/}{byrdocs.org}}
+\maketitle
+\thispagestyle{fancy}
+\section{选择题 (每小题5分, 共30分)}
+\subsection{级数\quad\ding{172} $\sum_{n=1}^{\infty}\frac{1}{2^{\ln{n}}}$\quad\ding{173} $\sum_{n=2}^{\infty}\frac{1}{n\ln^{2}n}$\quad\ding{174} $\sum_{n=1}^{\infty}\frac{2^{n}n!}{n^{n}}$\quad\ding{175} $\sum_{n=2}^{\infty}\frac{1}{\sqrt{n}\ln^{3}{n}}$中收敛级数为}
+\options{\ding{172} \ding{174}}{\ding{174} \ding{175}}{\ding{173} \ding{174}}{\ding{173} \ding{175}}
+\subsection{设级数$\sum_{n=1}^{\infty}\qty(a-\frac{1}{n})^n$收敛, 则常数$a$的取值范围是}
+\options{$(-1,1)$}{$[-1,1]$}{$[-1,1)$}{$(-1,1]$}
+\subsection{设数列$\{a_n\}$满足$\lim_{n\rightarrow\infty}\frac{na_n}{\ln(1+\frac{1}{\sqrt{n}})}=0$,则级数$\sum_{n=1}^{\infty}(-1)^{n-1}a_n$}
+\options{条件收敛}{绝对收敛}{发散}{敛散性不确定}
+\subsection{设函数$f(x)=\int_{0}^{x}\frac{\sin{t}}{t}\dd{t}$,则$f^{(99)}(0)=$}
+\options{$\frac{1}{99}$}{$-\frac{1}{99}$}{$\frac{1}{99!}$}{$-\frac{1}{99!}$}
+\subsection{幂级数$\sum_{n=0}^{\infty}a_n(x-1)^n$在$x=3$条件收敛, 则幂级数$\sum_{n=1}^{\infty}n(n+1)a_n(x+1)^n$}
+\options[2]{在$x=-\frac{5}{2}$条件收敛}{在$x=2$绝对收敛}{在$x=-3$必条件收敛}{在$x=-4$处必发散}
+\subsection{设函数$f(x,y)=\begin{cases}
+	\frac{x^{2}y}{x^{4}+y^{2}},{}&x^{2}+y^{2}\ne0\\
+	0,{}&x^{2}+y^{2}=0
+\end{cases}$, 则}
+\options[2]{$f(x,y)$在$(0,0)$处连续}{$f(x,y)$在$(1,0)$处不可微}{$f_x(x,y),f_y(x,y)$在$(0,1)$处连续}{$f(x,y)$在$(0,0)$处可微}
+\section{填空题 (第小题5分, 共30分)}
+\subsection{极限$\lim_{(x,y)\rightarrow(0,1)}\frac{\ln{\cos(xy)}}{\sqrt{1+x^{2}y}-1}=$\blank.}
+\subsection{设$f(x)=\begin{cases}
+	\pi,{}&0\le x\le\frac{\pi}{2}\\
+	x,{}&\frac{\pi}{2}<x\le\pi
+\end{cases},\;s(x)=\sum_{n=1}^{\infty}b_n\sin{nx},\;b_n=2\int_{0}^{\pi}f(x)\sin{nx}\dd{x}$, 则$s\qty(\frac{3\pi}{2})=$\blank.}
+\subsection{函数$f(x)=\ln(2-x)$的麦克劳林级数展开式为\blank.}
+\subsection{函数$f(x,y)=\begin{cases}
+	\frac{\sin{x}-xy^2}{x^2y},{}&xy\ne0\\
+	0,{}&xy=0
+\end{cases}$, 则$f_x(0,-1)=$\blank.}
+\subsection{在变换$u=\lambda x,\;v=x^{2}+y^{2}$下, 方程$y\pdv{z}{x}-x\pdv{z}{y}=y$可转化为$\pdv{z}{u}=\frac{1}{2}$, 则常数$\lambda=$\blank.}
+\subsection{设函数$z=z(x,y)$由方程$z=f(xyz,z-y)$确定, 其中函数$f$具有一阶连续偏导数且$xyf_1'+f_2'\ne1$, 则函数$z(x,y)$的全微分$\dd{z}=$\blank.}
+\section{解答题 (3个小题, 共40分)}
+\subsection{(10分) 判别级数$\sum_{n=1}^{\infty}\frac{(-1)^{n-1}}{\sqrt{n}+(-1)^{n-1}}$的敛散性.}
+\subsection{(15分) 求幂级数$\sum_{n=1}^{\infty}\frac{1}{2n-1}(x-1)^{2n-1}$的收敛域及和函数, 并求$\sum_{n=1}^{\infty}\frac{1}{(2n-1)2^{n}}$的和.}
+\pagebreak
+\subsection{(15分) 已知$(ax\cos{2y}-y^2\sin{3x}-1)\dd{x}+(by\cos{3x}+x^2\sin{2y}+2y)\dd{y}$为某函数$f(x,y)$的全微分, 求常数$a,b$的值及函数$f(x,y)$的表达式.}
+\newpage
+\begin{center}
+	{\LARGE 参考答案}\\
+	\vspace{1.5em}
+	{\large 制作：cppHusky}
+\end{center}
+\fancyhead[L]{\footnotesize\sffamily 2023-2024《高等数学A（下）》期中A卷参考答案}
+\fancyhead[R]{\footnotesize\sffamily \textit{cppHusky}制作}
+\setcounter{section}{0}
+\section{选择题}
+C A B\qquad B D C
+\section{填空题}
+\subsection{$-1$}
+\subsection{$-\frac{3\pi}{4}$}
+\subsection{$\ln{2}-\sum_{n=1}^{\infty}\frac{x^{n}}{n2^{n}}$}
+\subsection{$0$}
+\subsection{$2$}
+\subsection{$\frac{f_1yz}{1-xyf_1-f_2}\dd{x}+\frac{xzf_1-f_2}{1-xyf_1-f_2}\dd{y}$}
+\section{}
+\subsection{}
+\subsubsection*{方法1 (由\ 蔡景旭\ 提出) }
+\begin{align*}
+	\frac{(-1)^{n-1}}{\sqrt{n}+(-1)^{n-1}}-\frac{(-1)^{n-1}}{\sqrt{n}}={}&\frac{-1}{\sqrt{n}\qty[\sqrt{n}+(-1)^{n-1}]}\\
+	\frac{(-1)^{n-1}}{\sqrt{n}+(-1)^n}={}&\frac{(-1)^{n-1}}{\sqrt{n}}-\frac{1}{n+\sqrt{n}(-1)^{n-1}}
+\end{align*}
+根据莱布尼兹定理可知$\sum_{n=1}^{\infty}\frac{(-1)^{n-1}}{\sqrt{n}}$收敛; 根据比较审敛法$\lim_{n\rightarrow\infty}\frac{\frac{1}{n+\sqrt{n}(-1)^{n-1}}}{\frac{1}{n}}=1$可知$\sum_{n=1}^{\infty}\frac{1}{n+\sqrt{n}(-1)^{n}}$发散.\par
+因此, $\sum_{n=1}^{\infty}\frac{(-1)^{n-1}}{\sqrt{n}+(-1)^{n-1}}$可以分解成一个收敛级数和一个发散级数的和, 所以这个级数是发散的.\par
+\subsubsection*{方法2}
+这个级数是发散的. 为了证明它是发散的, 我们逆用收敛级数的性质``若$\sum_{n=1}^{\infty}$为收敛级数, 则不改变它的各项次序任意加入括号后所得到的新级数仍收敛''.\par
+对本题来说, 为该级数每两项套一个括号, 使之变成新级数
+\begin{align*}
+	u_n=\sum_{n=1}^{\infty}\frac{(-1)^{n-1}}{\sqrt{n}+(-1)^{n-1}}={}&\sum_{n=1}^{\infty}\qty(\frac{1}{\sqrt{2n-1}+1}-\frac{1}{\sqrt{2n}-1})\\
+	={}&\sum_{n=1}^{\infty}\frac{\sqrt{2n}-\sqrt{2n-1}-2}{\qty(\sqrt{2n-1}+1)\qty(\sqrt{2n}-1)}
+\end{align*}
+可见, $u_n$是负项级数. 我们对其使用比较审敛法, 有
+\begin{align*}
+	\lim_{n\rightarrow\infty}\frac{u_n}{-\frac{1}{n}}=1
+\end{align*}
+而我们知道$\sum_{n=1}^{\infty}\qty(-\frac{1}{n})$是发散的, 所以$u_n$发散. 进而原级数$\sum_{n=1}^{\infty}\frac{(-1)^{n-1}}{\sqrt{n}+\qty(-1)^{n-1}}$也发散.\par
+\subsection{}
+这是缺项级数, 收敛半径为$R=\sqrt{\lim_{n\rightarrow\infty}\abs{\frac{2n+3}{2n-1}}}=1$, 因此收敛区间是$(0,2)$.\par
+当$x=0$时, 根据莱布尼兹定理可知$\sum_{n=1}^{\infty}\frac{(-1)^{2n-1}}{2n-1}$收敛; 当$x=2$时, 级数$\sum_{n=1}^{\infty}\frac{1}{2n-1}$显然是发散的. 综上所述, 收敛域为$\left[0,2\right)$.\par
+设$S(x)=\sum_{n=1}^{\infty}\frac{(x-1)^{2n-1}}{2n-1}$, 那么
+\begin{align*}
+	S'(x)={}&\sum_{n=1}^{\infty}\qty[(x-1)^{2}]^{n-1}=\frac{1}{1-(x-1)^{2}}\\
+	S(x)={}&\int_{1}^{x}\frac{\dd{x}}{2x-x^{2}}=\frac{1}{2}\ln{\frac{x}{2-x}}
+\end{align*}
+代入$x=1+\frac{1}{\sqrt{2}}$得到
+\begin{align*}
+	\sum_{n=1}^{\infty}\frac{\qty(\frac{1}{\sqrt{2}}+1-1)^{2n-1}}{2n-1}={}&\frac{1}{2}\ln{\frac{1+\frac{1}{\sqrt{2}}}{1-\frac{1}{\sqrt{2}}}}\\
+	\sqrt{2}\sum_{n=1}^{\infty}\frac{1}{(2n-1)2^{n}}={}&\frac{1}{2}\ln(3+2\sqrt{2})\\
+	\sum_{n=1}^{\infty}\frac{1}{(2n-1)2^{n}}={}&\frac{1}{2\sqrt{2}}\ln(3+2\sqrt{2})
+\end{align*}
+\subsection{}
+根据全微分可以知道$f$的偏导数, 即:
+\begin{align*}
+	\pdv{f}{x}={}&ax\cos{2y}-y^{2}\sin{3x}-1\\
+	\pdv{f}{y}={}&by\cos{3x}+x^{2}\sin{2y}+2y
+\end{align*}
+对偏导数积分, 可得:
+\begin{align*}
+	\int\pdv{f}{x}\dd{x}={}&\frac{ax^{2}}{2}\cos{2y}+\frac{y^{2}}{3}\cos{3x}-x+\varphi(y)\\
+	\int\pdv{f}{y}\dd{y}={}&\frac{by^{2}}{2}\cos{3x}-\frac{x^{2}}{2}\cos{2y}+y^{2}+\psi(x)
+\end{align*}
+比较积分结果中的项, 可以得到
+\begin{align*}
+	a&=-1; & b&=\frac{2}{3};\\
+	\varphi(y)&=y^{2}+C; & \psi(x)&=-x+C.
+\end{align*}
+因此$f(x,y)=-\frac{x^{2}}{2}\cos{2y}+\frac{y^{2}}{3}\cos{3x}-x+y^{2}+C$.\par
+\end{document}
