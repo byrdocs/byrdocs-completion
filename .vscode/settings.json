@@ -1,4 +1,34 @@
 {
+	"latex-workshop.intellisense.command.user": {
+		"options":"options{${1}}{${2}}{${3}}{${4}}",
+	},
+	"latex-workshop.intellisense.package.extra": [
+		"amsmath",
+		"booktabs",
+		"pifont",
+		"enumitem",
+		"esint",
+		"fancyhdr",
+		"float",
+		"fontspec",
+		"geometry",
+		"hyperref",
+		"import",
+		"indenfirst",
+		"lastpage",
+		"nicematrix",
+		"physics",
+		"setspace",
+		"subcaption",
+		"tikz",
+		"titlesec",
+		"titletoc",
+		"wrapfig",
+		"xcolor",
+		"xparse",
+		"xstring",
+		"zhnumber",
+	],
 	"latex-workshop.latex.recipe.default": "first",
 	"latex-workshop.latex.recipes": [
 		{
@@ -10,7 +40,4 @@
 	],
 	"latex-workshop.latex.autoBuild.run": "never",
 	"latex-workshop.latex.autoClean.run": "onSucceeded",
-	"latex-workshop.intellisense.package.extra": [
-		"fancyhdr",
-	],
 }

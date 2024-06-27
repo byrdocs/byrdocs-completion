@@ -1,15 +1,18 @@
 \documentclass[12pt]{ctexart}
 \usepackage{amsmath}
 \usepackage{booktabs}
+\usepackage{pifont}
 \usepackage{enumitem}
 \usepackage{esint}
 \usepackage{fancyhdr}
 \usepackage{float}
 \usepackage{fontspec}
 \usepackage{geometry}
+\usepackage{hyperref}
 \usepackage{import}
 \usepackage{indentfirst}
 \usepackage{lastpage}
+\usepackage{nicematrix}
 \usepackage{physics}
 \usepackage{setspace}
 \usepackage{subcaption}
@@ -19,6 +22,8 @@
 \usepackage{titletoc}
 \usepackage{wrapfig}
 \usepackage{xcolor}
+\usepackage{xparse}
+\usepackage{xstring}
 \usepackage{zhnumber}
 \geometry{a4paper,top=2cm,bottom=3.2cm,inner=2.5cm,outer=3.2cm}
 \setmonofont{Fira Code}
@@ -36,20 +41,68 @@
 \setstretch{1.5}
 \setlength{\parskip}{0.4em}
 \everymath{\displaystyle}
-\title{}
-\author{}
+\NewDocumentCommand{\options}{O{4}mmmm}{
+	\IfEqCase{#1}{
+		{4}{
+			\begin{table}[H]
+				\centering
+				\begin{NiceTabular}[width=\linewidth]{@{}!{\qquad}*{4}{X[1,l]}}
+					A. #2 & B. #3 & C. #4 & D. #5
+				\end{NiceTabular}
+			\end{table}
+		}
+		{2}{
+			\begin{table}[H]
+				\centering
+				\begin{NiceTabular}[width=\linewidth]{@{}!{\qquad}*{2}{X[1,l]}}
+					A. #2 & B. #3 \\
+					C. #4 & D. #5
+				\end{NiceTabular}
+			\end{table}
+		}
+		{1}{
+			\begin{table}[H]
+				\centering
+				\begin{NiceTabular}[width=\linewidth]{@{}!{\qquad}X[1,l]}
+					A. #2 \\
+					B. #3 \\
+					C. #4 \\
+					D. #5
+				\end{NiceTabular}
+			\end{table}
+		}
+	}
+}
+\NewDocumentCommand{\blank}{}{\underline{\qquad}}
+
+\title{题目}
+\author{署名}
 \date{}
 \begin{document}
 \pagestyle{fancy}
 \fancyhf{}
-\fancyhead[L]{}
-\fancyhead[R]{}
-\fancyfoot[C]{\footnotesize 第\thepage 页，共\pageref{LastPage} 页}
+\fancyhead[L]{\footnotesize\sffamily 题目}
+\fancyhead[R]{\footnotesize\sffamily }
+\fancyfoot[C]{\footnotesize\sffamily 第\thepage 页，共\pageref*{LastPage} 页}
+\fancyfoot[R]{\footnotesize \href{https://byrdocs.org/}{byrdocs.org}}
 \maketitle
 \thispagestyle{fancy}
-% 大题用\section{}, 小题用\subsection{}和\subsubsection{}.
-\section{大题}
-\subsection{小题}
-\subsubsection{小题}
+
+\section{大题用 section}
+
+\subsection{小题用 subsection}
+
+\subsubsection{小题也可以用 subsubsection}
+
+\subsection{选择题：编选项可以使用（？）}
+
+\options[2]{options}{options}{options}{options}
+
+\begin{figure}[H]
+	\centering
+	\begin{tikzpicture}
+		\node[draw,rectangle]{画图用tikzpicture};
+	\end{tikzpicture}
+\end{figure}
 
 \end{document}
