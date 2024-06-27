@@ -1,0 +1,168 @@
+\documentclass[12pt]{ctexart}
+\usepackage{amsmath}
+\usepackage{booktabs}
+\usepackage{pifont}
+\usepackage{enumitem}
+\usepackage{esint}
+\usepackage{fancyhdr}
+\usepackage{float}
+\usepackage{fontspec}
+\usepackage{geometry}
+\usepackage{hyperref}
+\usepackage{import}
+\usepackage{indentfirst}
+\usepackage{lastpage}
+\usepackage{nicematrix}
+\usepackage{physics}
+\usepackage{setspace}
+\usepackage{subcaption}
+\usepackage{tikz}
+\usetikzlibrary{shapes}
+\usepackage{titlesec}
+\usepackage{titletoc}
+\usepackage{wrapfig}
+\usepackage{xcolor}
+\usepackage{xparse}
+\usepackage{xstring}
+\usepackage{zhnumber}
+\geometry{a4paper,top=2cm,bottom=3.2cm,inner=2.5cm,outer=3.2cm}
+\setmonofont{Fira Code}
+\setCJKmainfont{Noto Serif CJK SC}
+\setCJKsansfont{Noto Sans CJK SC}
+\setCJKmonofont{Fira Code}
+\DeclareMathOperator{\ee}{\mathrm{e}}
+\DeclareMathOperator{\ii}{\mathrm{i}}
+\DeclareMathOperator{\jj}{\mathrm{jj}}
+\renewcommand{\thesection}{\zhnum{section}}
+\titleformat{\section}{\normalsize}{\bfseries\thesection、}{0.25em}{}
+\titleformat{\subsection}{\normalsize}{\bfseries\arabic{subsection}.}{1em}{}
+\titleformat{\subsubsection}{\normalsize}{\bfseries\hspace{2em}(\arabic{subsubsection})}{.5em}{}
+\allowdisplaybreaks[4]
+\setstretch{1.5}
+\setlength{\parskip}{0.4em}
+\everymath{\displaystyle}
+\NewDocumentCommand{\options}{O{4}mmmm}{
+	\IfEqCase{#1}{
+		{4}{
+			\begin{table}[H]
+				\centering
+				\begin{NiceTabular}[width=\linewidth]{@{}!{\qquad}*{4}{X[1,l]}}
+					A. #2 & B. #3 & C. #4 & D. #5
+				\end{NiceTabular}
+			\end{table}
+		}
+		{2}{
+			\begin{table}[H]
+				\centering
+				\begin{NiceTabular}[width=\linewidth]{@{}!{\qquad}*{2}{X[1,l]}}
+					A. #2 & B. #3 \\
+					C. #4 & D. #5
+				\end{NiceTabular}
+			\end{table}
+		}
+		{1}{
+			\begin{table}[H]
+				\centering
+				\begin{NiceTabular}[width=\linewidth]{@{}!{\qquad}X[1,l]}
+					A. #2 \\
+					B. #3 \\
+					C. #4 \\
+					D. #5
+				\end{NiceTabular}
+			\end{table}
+		}
+	}
+}
+\NewDocumentCommand{\blank}{}{\underline{\qquad}}
+
+\title{北京邮电大学2023-2024学年第二学期\\《大学物理E 上》期末考试试题（A卷）\\参考答案}
+\author{制作：cppHusky}
+\date{}
+\begin{document}
+\pagestyle{fancy}
+\fancyhf{}
+\fancyhead[L]{\footnotesize\sffamily 23-24-2 大学物理E 上 期末A卷 参考答案}
+\fancyhead[R]{\footnotesize\sffamily \textit{cppHusky}制作}
+\fancyfoot[C]{\footnotesize\sffamily 第\thepage 页，共\pageref*{LastPage} 页}
+\fancyfoot[R]{\footnotesize \href{https://byrdocs.org/}{byrdocs.org}}
+\maketitle
+\thispagestyle{fancy}
+\section{单项选择题}
+\begin{table}[H]
+	\centering
+	\begin{NiceTabular}{*{10}{c}}[hlines]
+		1 & 2 & 3 & 4 & 5 & 6 & 7 & 8 & 9 & 10 \\
+		B & A & C & D & B & B & C & B & B & D
+	\end{NiceTabular}
+\end{table}
+\section{填空题}
+\subsection{$\sqrt{\frac{g}{\mu R}}$}
+\subsection{$3.6\,\mathrm{m/s}$}
+\subsection{$GMm\qty(\frac{1}{R_1}-\frac{1}{R_2})$}
+\subsection{$\frac{qq_0}{4\pi\varepsilon_0}\qty(\frac{1}{a}-\frac{1}{b})$}
+\subsection{$L\over2$}
+\subsection{$\pi a^{2}\mu_{0}n\omega I_{n}\cos{\omega t}$}
+\subsection{$0$}
+\subsection{$y=2\times10^{-3}\cos(200\pi t-400x-\frac{\pi}{2})\,\mathrm{m}$}
+\pagebreak
+\subsection{$\frac{\lambda}{2}$}
+\subsection{$\frac{3kT}{m}$}
+\section{}
+\subsection{}
+\subsubsection{}
+因为无限大薄平板对外的场强是$\dd{\overrightarrow{E}}=\frac{\rho\dd{x}\overrightarrow{e_r}}{2\varepsilon_0}$, 所以左侧的电场强度大小为$\int_{0}^{b}\frac{-\rho\overrightarrow{e_x}\dd{x}}{2\varepsilon_{0}}={\color{violet}-\frac{\rho\overrightarrow{e_{x}}kb^{2}}{4\varepsilon_{0}}}$.\par
+同理, 右侧的电场强度大小为$\int_{0}^{b}\frac{\rho\overrightarrow{e_{x}}\dd{x}}{2\varepsilon_{0}}={\color{violet}\frac{\rho\overrightarrow{e_{x}}kb^{2}}{4\varepsilon_{0}}}$.\par
+\subsubsection{}
+设$P$的坐标为 $(x,0)$, 那么 $P$ 处的电场强度大小为
+\begin{align*}
+	\overrightarrow{E}={}&\int_{0}^{x}\frac{\rho\overrightarrow{e_{x}}\dd{t}}{2\varepsilon_{0}}+\int_{x}^{b}\frac{-\rho\overrightarrow{e_{x}}\dd{t}}{2\varepsilon_{0}}\\
+	={}&\color{violet}\frac{k\overrightarrow{e_{x}}(2x^{2}-b^{2})}{4\varepsilon_{0}}
+\end{align*}
+\subsubsection{}
+根据上述结论, 电场为零的点不可能在平板之外. 而在平板之内, 也只能是$2x^{2}-b^{2}=0$的点, 也就是$\color{violet}x=\frac{b}{\sqrt{2}}$的点.\par
+\subsection{}
+\textbf{第一个过程: 小物体从A的顶端下滑到A, B交界位置.}\par
+在此过程中, 小物体的重力势能$mgh_{0}$转化为它与A的动能. 又因为两者间动量守恒, 得列以下两式:
+\[\begin{cases}
+	mgh{0}=\frac{1}{2}Mv_{A}^{2}+\frac{1}{2}mv_{1}^{2}\\
+	0=M\overrightarrow{v_{A}}+m\overrightarrow{v_{1}}
+\end{cases}\]
+解得$v_{1}=\sqrt{2Mgh_{0}}{M+m}$.\par
+\textbf{第二个过程: 小物体滑上B, 到达最高点. 此时二者有相同的(水平)速度.}\par
+同样根据能量守恒和动量守恒, 得列两式:
+\[\begin{cases}
+	mgh=\frac{1}{2}Mv_{B}^{2}+\frac{1}{2}mv_{B}^{2}\\
+	m\overrightarrow{v_{1}}=M\overrightarrow{v_{B}}+m\overrightarrow{v_{B}}
+\end{cases}\]
+最终解得$\color{violet}h=\frac{Mmh_{0}}{(M+m)^{2}}$.\par
+\subsection{}
+金属细杆在磁场中运动产生了动生电动势, 于是ab两端间的电势差为
+\begin{align*}
+	\int_{b}^{a}\overrightarrow{v}\times\overrightarrow{B}\cdot\dd{\overrightarrow{\rho}}
+\end{align*}
+而$\overrightarrow{v}=\overrightarrow{\omega}\times\overrightarrow{\rho}$, 所以
+\begin{align*}
+	U_a-U_b={}&\int_{\frac{4L}{5}}^{-\frac{L}{5}}\overrightarrow{\omega}\times\overrightarrow{\rho}\times\overrightarrow{B}\cdot\dd{\overrightarrow{\rho}}\\
+	={}&\int_{\frac{4L}{5}}^{-\frac{L}{5}}\omega\rho B\dd{\rho}\\
+	={}&\color{violet}-\frac{3\omega BL^{2}}{20}
+\end{align*}\par
+\subsection{}
+\subsubsection{}
+因为理想气体的量没有变化, 所以总是有
+\[\frac{p_{A}V_{A}}{T_{A}}=\frac{p_{B}V_{B}}{T_{B}}=\frac{p_{C}V_{C}}{T_{C}}\]
+代入各点的气压, 体积值即可求得
+\begin{align*}\color{violet}
+	T_{B}=300\,\mathrm{K}\qquad T_{C}=100\,\mathrm{K}
+\end{align*}\par
+\subsubsection{}
+在三个过程中气体对外作的功分别为
+\begin{align*}
+	W_{\overrightarrow{AB}}={}&\int_{V_{A}}^{V_{B}}p\dd{V}=\color{violet}400\,\mathrm{J}\\
+	W_{\overrightarrow{BC}}={}&\int_{V_{B}}^{V_{C}}p\dd{V}=\color{violet}-200\,\mathrm{J}\\
+	W_{\overrightarrow{CA}}={}&\int_{V_{C}}^{V_{A}}p\dd{V}=\color{violet}0
+\end{align*}
+\subsubsection{}
+对整个循环过程, 有
+\[W+Q=\Delta U\]
+理想气体始末状态的温度相同, 故$\Delta U=0$; 根据上一问知, 外界对系统作功$-200\,\mathrm{J}$. 所以能解出气体从外界吸收的总热量$\color{violet}Q=200\,\mathrm{J}$.\par
+\end{document}
