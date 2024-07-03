@@ -1,0 +1,115 @@
+\documentclass[12pt]{ctexart}
+\usepackage{amsmath}
+\usepackage{booktabs}
+\usepackage{pifont}
+\usepackage{enumitem}
+\usepackage{esint}
+\usepackage{fancyhdr}
+\usepackage{float}
+\usepackage{fontspec}
+\usepackage{geometry}
+\usepackage{hyperref}
+\usepackage{import}
+\usepackage{indentfirst}
+\usepackage{lastpage}
+\usepackage{nicematrix}
+\usepackage{physics}
+\usepackage{setspace}
+\usepackage{subcaption}
+\usepackage{tikz}
+\usetikzlibrary{shapes}
+\usepackage{titlesec}
+\usepackage{titletoc}
+\usepackage{wrapfig}
+\usepackage{xcolor}
+\usepackage{xparse}
+\usepackage{xstring}
+\usepackage{zhnumber}
+\geometry{a4paper,top=2cm,bottom=3.2cm,inner=2.5cm,outer=3.2cm}
+\setmonofont{Fira Code}
+\setCJKmainfont{Noto Serif CJK SC}
+\setCJKsansfont{Noto Sans CJK SC}
+\setCJKmonofont{Fira Code}
+\DeclareMathOperator{\ee}{\mathrm{e}}
+\DeclareMathOperator{\ii}{\mathrm{i}}
+\DeclareMathOperator{\jj}{\mathrm{jj}}
+\renewcommand{\thesection}{\zhnum{section}}
+\titleformat{\section}{\normalsize}{\bfseries\thesection、}{0.25em}{}
+\titleformat{\subsection}{\normalsize}{\bfseries\arabic{subsection}.}{1em}{}
+\titleformat{\subsubsection}{\normalsize}{\bfseries\hspace{2em}(\arabic{subsubsection})}{.5em}{}
+\allowdisplaybreaks[4]
+\setstretch{1.5}
+\setlength{\parskip}{0.4em}
+\everymath{\displaystyle}
+\NewDocumentCommand{\options}{O{4}mmmm}{
+	\IfEqCase{#1}{
+		{4}{
+			\begin{table}[H]
+				\centering
+				\begin{NiceTabular}[width=\linewidth]{@{}!{\qquad}*{4}{X[1,l]}}
+					A. #2 & B. #3 & C. #4 & D. #5
+				\end{NiceTabular}
+			\end{table}
+		}
+		{2}{
+			\begin{table}[H]
+				\centering
+				\begin{NiceTabular}[width=\linewidth]{@{}!{\qquad}*{2}{X[1,l]}}
+					A. #2 & B. #3 \\
+					C. #4 & D. #5
+				\end{NiceTabular}
+			\end{table}
+		}
+		{1}{
+			\begin{table}[H]
+				\centering
+				\begin{NiceTabular}[width=\linewidth]{@{}!{\qquad}X[1,l]}
+					A. #2 \\
+					B. #3 \\
+					C. #4 \\
+					D. #5
+				\end{NiceTabular}
+			\end{table}
+		}
+	}
+}
+\NewDocumentCommand{\blank}{}{\underline{\qquad}}
+
+\title{北京邮电大学2023-2024学年第二学期\\《数学分析（下）》期末考试试题（A卷）}
+\author{重制：cppHusky}
+\date{}
+\begin{document}
+\pagestyle{fancy}
+\fancyhf{}
+\fancyhead[L]{\footnotesize\sffamily 23-24第二学期《数学分析（下）期末A卷}
+\fancyhead[R]{\footnotesize\sffamily \textit{cppHusky}重制}
+\fancyfoot[C]{\footnotesize\sffamily 第\thepage 页，共\pageref*{LastPage} 页}
+\fancyfoot[R]{\footnotesize \href{https://byrdocs.org/}{byrdocs.org}}
+\maketitle
+\thispagestyle{fancy}
+\section{填空题 (本大题共10小题, 篛小题3分, 共30分)}
+\subsection{级数$\sum_{n=1}^{\infty}\frac{\ln{n}}{\sqrt{n}}$的敛散性为\blank(收敛或发散).}
+\subsection{幂级数$\sum_{n=1}^{\infty}\qty(\sqrt{n+1}-\sqrt{n})2^{n}x^{2n}$的收敛区间为\blank.}
+\subsection{已知$f(x,y)=\begin{cases}
+	\frac{\ln(1+xy)}{xy},&xy\ne0\\
+	x,&xy=0
+\end{cases}$, 则$f_y(1,0)$=\blank.}
+\subsection{已知函数$z=z(x,y)$由方程$xy+z+\ee^{xz}=1$所确定, 则$\eval{\dd{z}}_{(1,0)}=$\blank.}
+\subsection{曲面$z=\arctan{\frac{y}{x}}$在点$\qty(1,1,\frac{\pi}{4})$处的切平面方程为\blank.}
+\subsection{点$(0,0)$是函数$f(x,y)=(1+\ee^{y})\cos{x}-y\ee^{y}$的\blank(极大或极小) 值点.}
+\subsection{设平面区域$D$由曲线$y=x^{3}$与直线$x=1,\,y=-1$围成, 则$\iint_{D}\qty[1+xy\ee^{\abs{x}+\abs{y}}]\dd{x}\dd{y}=$\blank.}
+\subsection{已知$D$是第一象限中曲线$y=\sqrt{1-x^{2}}$与直线$x+y=1,\,y=x,\,y=\sqrt{3}x$围成的平面区域, $f(t)$连续, 将二重积分$\iint_{D}f(x^{2}+y^{2})\dd{\sigma}$化为极坐标系下的累次积分为\blank.}
+\subsection{设闭曲线$C$为$\abs{x}+\abs{y}=1$, 则$\oint_{C}\qty(\abs{x}+y)\dd{s}=$\blank.}
+\pagebreak
+\subsection{已知$C$为不经过原点的一条光滑曲线, 从点$A(1,0)$到点$B(3,4)$, 则\newline$\int_{C}\frac{x\dd{x}+y\dd{y}}{\sqrt{x^{2}+y^{2}}}=$\blank.}
+\section{(10分) 设$f(r)$有二阶连续导数,$z=z(x,y)=f(r)$满足方程$\pdv[2]{z}{x}+\pdv[2]{z}{y}=0$, 其中$r=\sqrt{x^{2}+y^{2}}$. 若$f(1)=0,\,f'(1)=1$, 求$z=z(x,y)$的表达式.}
+\section{(12分)}
+\subsection{计算累次积分$\int_{1}^{2}\dd{y}\int_{\sqrt{y}}^{y}\ee^{\frac{y}{x}}\dd{x}+\int_{2}^{4}\dd{y}\int_{\sqrt{y}}^{2}\ee^{\frac{y}{x}}\dd{x}$.}
+\subsection{已知$\Omega$是由圆锥面$z=\sqrt{x^{2}+y^{2}}$和上半球面$z=\sqrt{1-x^{2}+y^{2}}$围成的闭区域, 计算三重积分$\iiint_{\Omega}z(x^{2}+y^{2})\dd{x}\dd{y}\dd{z}$.}
+\section{(12分) 设$a,\,b$为实数, 函数$z=ax^{2}+by^{2}+2$在点$(3,4)$的方向导数中, 沿方向$\overrightarrow{l}=-3\overrightarrow{i}-4\overrightarrow{j}$的方向导数最大, 最大值为$10$.}
+\subsection{求$a,\,b$的值.}
+\subsection{求曲面$S:\:z=ax^{2}+by^{2}+2\;(z\ge0)$的面积.}
+\section{(12分) 设$C$是原点$O(0,0,0)$为起点, 椭球面$\frac{x^{2}}{a^{2}}+\frac{y^{2}}{b^{2}}+\frac{z^{2}}{c^{2}}=1$上第一卦限内的点$(x_0,y_0,z_0)$为终点的有向直线段,问当$x_0,\,y_0,\,z_0$为何值时, 曲线积分$I=\int_{C}yz\dd{x}+zx\dd{y}+xy\dd{z}$的值最大, 并求出最大值.}
+\section{(10分) 设$C$是圆周$(x-a)^{2}+(y-a)^{2}=1$的边界曲线, 逆时针方向, $f(x)$为大于零的连续函数, 证明: $\oint_{C}\qty[\ee^{x}\cos{y}-\frac{y}{f(x)}]\dd{x}+\qty[xf(y)-\ee^{x}\sin{y}]\dd{y}\ge2\pi$.}
+\section{(10分) 已知$S$是上半球面$z=\sqrt{a^{2}-x^{2}-y^{2}}\;(a>0)$的上侧, 计算曲面积分$I=\iint_{S}ax\dd{y}\dd{z}-3ay\dd{z}\dd{x}+(z+a)^{2}\dd{x}\dd{y}$.}
+\end{document}
