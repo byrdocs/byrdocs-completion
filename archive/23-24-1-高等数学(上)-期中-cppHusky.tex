@@ -1,0 +1,112 @@
+\documentclass[12pt]{ctexart}
+\usepackage{amsmath}
+\usepackage{amssymb}
+\usepackage{amsthm}
+\usepackage{booktabs}
+\usepackage{pifont}
+\usepackage{enumitem}
+\usepackage{esint}
+\usepackage{fancyhdr}
+\usepackage{float}
+\usepackage{fontspec}
+\usepackage{geometry}
+\usepackage{hyperref}
+\usepackage{import}
+\usepackage{indentfirst}
+\usepackage{lastpage}
+\usepackage{nicematrix}
+\usepackage{physics}
+\usepackage{setspace}
+\usepackage{subcaption}
+\usepackage{tikz}
+\usetikzlibrary{shapes}
+\usepackage{titlesec}
+\usepackage{titletoc}
+\usepackage{wrapfig}
+\usepackage{xcolor}
+\usepackage{xparse}
+\usepackage{xstring}
+\usepackage{zhnumber}
+\geometry{a4paper,top=2cm,bottom=3.2cm,inner=2.5cm,outer=3.2cm}
+\setmonofont{Fira Code}
+\setCJKmainfont{Noto Serif CJK SC}
+\setCJKsansfont{Noto Sans CJK SC}
+\setCJKmonofont{Fira Code}
+\DeclareMathOperator{\ee}{\mathrm{e}}
+\DeclareMathOperator{\ii}{\mathrm{i}}
+\DeclareMathOperator{\jj}{\mathrm{jj}}
+\renewcommand{\thesection}{\zhnum{section}}
+\titleformat{\section}{\normalsize}{\bfseries\thesection、}{0.25em}{}
+\titleformat{\subsection}{\normalsize}{\bfseries\arabic{subsection}.}{1em}{}
+\titleformat{\subsubsection}{\normalsize}{\bfseries\hspace{2em}(\arabic{subsubsection})}{.5em}{}
+\allowdisplaybreaks[4]
+\setstretch{1.5}
+\setlength{\parskip}{0.4em}
+\everymath{\displaystyle}
+\NewDocumentCommand{\options}{O{4}mmmm}{
+	\IfEqCase{#1}{
+		{4}{
+			\begin{table}[H]
+				\centering
+				\begin{NiceTabular}[width=\linewidth]{@{}!{\qquad}*{4}{X[1,l]}}
+					A. #2 & B. #3 & C. #4 & D. #5
+				\end{NiceTabular}
+			\end{table}
+		}
+		{2}{
+			\begin{table}[H]
+				\centering
+				\begin{NiceTabular}[width=\linewidth]{@{}!{\qquad}*{2}{X[1,l]}}
+					A. #2 & B. #3 \\
+					C. #4 & D. #5
+				\end{NiceTabular}
+			\end{table}
+		}
+		{1}{
+			\begin{table}[H]
+				\centering
+				\begin{NiceTabular}[width=\linewidth]{@{}!{\qquad}X[1,l]}
+					A. #2 \\
+					B. #3 \\
+					C. #4 \\
+					D. #5
+				\end{NiceTabular}
+			\end{table}
+		}
+	}
+}
+\NewDocumentCommand{\blank}{}{\underline{\qquad}}
+
+\title{2023-2024第一学期\\Advanced Mathematics 期中}
+\author{重制：\textit{cppHusky}}
+\date{}
+\begin{document}
+\pagestyle{fancy}
+\fancyhf{}
+\fancyhead[L]{\footnotesize\sffamily 23-24-1 Advanced Mathematics 期中}
+\fancyhead[R]{\footnotesize\sffamily 重制：\textit{cppHusky}}
+\fancyfoot[C]{\footnotesize\sffamily 第\thepage 页，共\pageref*{LastPage} 页}
+\fancyfoot[R]{\footnotesize \href{https://byrdocs.org/}{byrdocs.org}}
+\maketitle
+\thispagestyle{fancy}
+
+\section{\bf Question 1 [40 marks]}
+Fill in all the following blanks. Only the final results are required to be written down.
+\subsection{\(\lim_{x\rightarrow0}\frac{\ee^{x}+\ln(1-x)-1}{x-\arctan{x}}=\)\blank.}
+\subsection{\(\lim_{x\rightarrow0}\qty(\frac{\sin{x}}{x})^{\frac{1}{1-\cos{x}}}=\)\blank.}
+\subsection{Suppose \(f(x)=a^{x}\;\qty(a>0,\,a\ne1)\), then \(\lim_{n\rightarrow\infty}\frac{1}{n^{2}}\ln[f(1)f(2)\dots f(n)]=\)\blank.}
+\subsection{Suppose that \(f(x)\) is derivable at \(x=1\), and \(\lim_{x\rightarrow1}\frac{f(x)+\ee^{x-1}-3}{x-1}=-3\), then \(f'(1)=\)\blank.}
+\subsection{\(x=0\) is a/an \blank\ discontinuous point of the function \(f(x)=\frac{\ee^{\frac{1}{x}}-1}{\ee^{\frac{1}{x}}+1}\). (``removable'' or ``jump'' or ``infinite'' o ``oscillating'')}
+\subsection{The equation of the tanget line to the curve \(y=x^{2}-x-1\) perpendicular to \(x+3y-1=0\) is \blank.}
+\subsection{Suppose \(f(x)=x^{2}\ee^{2x}\), then \(f^{(10)}(0)=\)\blank.}
+\subsection{From Lagrange's theorem, we have \(\sqrt{1+x}-1=\frac{x}{2\sqrt{1+\theta x}}\), then \(\lim_{x\rightarrow0}\theta=\)\blank.}
+\pagebreak
+\section{\bf Question 2 [15 marks]}
+Suppose that the function \(y=y(x)\) is defined by the equation \(\begin{cases}x=\sqrt{1+t^{2}},\\y=\ln(t+\sqrt{1+t^{2}}),\end{cases}\) Find \(\eval{\dv{y}{x}}_{t=1}\) and \(\eval{\dv[2]{y}{x}}_{t=1}\).
+\section{\bf Question 3 [15 marks]}
+Suppose that \(f(x)=\begin{cases}ax^{2}+bx+c,{}&x\ge0,\\\ln(1+x),{}&x<0\end{cases}\) is derivable of order two at \(x=0\). Find \(a,\,b,\,c\).
+\section{\bf Question 4 [15 marks]}
+Suppose that \(y=\begin{cases}\frac{\ln(1-x)+a\sin{x}+bx^{2}}{x^{2}},{}&x\ne0,\\\frac{5}{2},{}&x=0\end{cases}\) is continuous at \(x=0\). Find \(a,\,b\).
+\section{\bf Question 5 [15 marks]}
+Suppose \(f(x)\) is continuous on \([a,\,b]\) and differentiable in \((a,\,b),\;0<a<b\). Prove that there exist \(\xi,\,\eta\in(a,\,b)\), such that \(f'(\xi)=\frac{\eta^{2}f'(\eta)}{ab}\).
+\end{document}
