@@ -1,0 +1,99 @@
+\documentclass[12pt]{ctexart}
+\usepackage{amsmath}
+\usepackage{amssymb}
+\usepackage{amsthm}
+\usepackage{booktabs}
+\usepackage{pifont}
+\usepackage{enumitem}
+\usepackage{esint}
+\usepackage{fancyhdr}
+\usepackage{float}
+\usepackage{fontspec}
+\usepackage{geometry}
+\usepackage{hyperref}
+\usepackage{import}
+\usepackage{indentfirst}
+\usepackage{lastpage}
+\usepackage{nicematrix}
+\usepackage{physics}
+\usepackage{setspace}
+\usepackage{subcaption}
+\usepackage{tikz}
+\usetikzlibrary{shapes}
+\usepackage{titlesec}
+\usepackage{titletoc}
+\usepackage{wrapfig}
+\usepackage{xcolor}
+\usepackage{xparse}
+\usepackage{xstring}
+\usepackage{zhnumber}
+\geometry{a4paper,top=2cm,bottom=3.2cm,inner=2.5cm,outer=3.2cm}
+\setmonofont{Fira Code}
+\setCJKmainfont{Noto Serif CJK SC}
+\setCJKsansfont{Noto Sans CJK SC}
+\setCJKmonofont{Fira Code}
+\DeclareMathOperator{\ee}{\mathrm{e}}
+\DeclareMathOperator{\ii}{\mathrm{i}}
+\DeclareMathOperator{\jj}{\mathrm{jj}}
+\renewcommand{\thesection}{\zhnum{section}}
+\titleformat{\section}{\normalsize}{\bfseries\thesection, }{0.25em}{}
+\titleformat{\subsection}{\normalsize}{\bfseries\arabic{subsection}.}{1em}{}
+\titleformat{\subsubsection}{\normalsize}{\bfseries\hspace{2em}(\arabic{subsubsection})}{.5em}{}
+\allowdisplaybreaks[4]
+\setstretch{1.5}
+\setlength{\parskip}{0.4em}
+\everymath{\displaystyle}
+\NewDocumentCommand{\options}{O{4}mmmm}{
+	\IfEqCase{#1}{
+		{4}{
+			\begin{table}[H]
+				\centering
+				\begin{NiceTabular}[width=\linewidth]{@{}!{\qquad}*{4}{X[1,l]}}
+					A. #2 & B. #3 & C. #4 & D. #5
+				\end{NiceTabular}
+			\end{table}
+		}
+		{2}{
+			\begin{table}[H]
+				\centering
+				\begin{NiceTabular}[width=\linewidth]{@{}!{\qquad}*{2}{X[1,l]}}
+					A. #2 & B. #3 \\
+					C. #4 & D. #5
+				\end{NiceTabular}
+			\end{table}
+		}
+		{1}{
+			\begin{table}[H]
+				\centering
+				\begin{NiceTabular}[width=\linewidth]{@{}!{\qquad}X[1,l]}
+					A. #2 \\
+					B. #3 \\
+					C. #4 \\
+					D. #5
+				\end{NiceTabular}
+			\end{table}
+		}
+	}
+}
+\NewDocumentCommand{\blank}{}{\underline{\qquad}}
+
+\title{2023-2024学年第一学期\\《组合数学》期末考试试题}
+\author{重制:\textit{cppHusky}}
+\date{}
+\begin{document}
+\pagestyle{fancy}
+\fancyhf{}
+\fancyhead[L]{\footnotesize\sffamily 23-24-1《组合数学》期末}
+\fancyhead[R]{\footnotesize\sffamily \textit{cppHusky}重制}
+\fancyfoot[C]{\footnotesize\sffamily 第\thepage 页, 共\pageref*{LastPage} 页}
+\fancyfoot[R]{\footnotesize \href{https://byrdocs.org/}{byrdocs.org}}
+\maketitle
+\thispagestyle{fancy}
+
+\subsection{证明\(\underbrace{1111\dots1}_{k\text{个}1}\)中存在2023的倍数.}
+\subsection{A和B比赛, 规定没有平局, 先胜5局者胜出并结束比赛. 问：有多少种可能的情况?}
+\subsection{求\(\sum_{k=0}^{n}\binom{n}{k}\frac{1}{k+2}\).}
+\subsection{有a, b, c, d四个人要到\(P_1,\,P_2,\,P_3,\,P_4\)四个地方去. a不去\(P_1\), b不去\(P_3\)和\(P_4\), c不去\(P_2\), d不去\(P_1\). 求可能的方法数.}
+\subsection{有1元, 2元, 5元面值的钞票若干, 要组成20元, 有多少种方法?}
+\subsection{\(a_{n}=6a_{n-1}+5a_{n-2}+2^{n}+3^{n}\), 又已知\(a_{0}=1,\,a_{1}=7\), 求\(a_{n}\).}
+\end{document}
