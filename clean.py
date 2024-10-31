@@ -1,3 +1,4 @@
+#!/bin/python
 # 请谨慎使用该脚本！
 # 需在完成一切编辑工作后运行，以请除archive中的临时文件和PDF文件。
 import os

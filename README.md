@@ -123,28 +123,7 @@ Word 是大部分人最早接触，也是最容易上手的的排版工具。
 
 ### Wolfram Mathematica
 
-<p align="center">
-	<a>
-		<img alt="Wolfram Mathematica" src="https://www.wolfram.com/common/framework/img/spikey.en.png"/>
-	</a>
-</p>
-
-<p align="center">
-	<a href="https://www.wolfram.com/download-center/mathematica/">
-		<img alt="Download" src="https://img.shields.io/website?down_message=offline&label=download%20center&up_color=f86200&up_message=online&url=https%3a%2f%2fwww.wolfram.com%2fdownload-center%2fmathematica">
-	</a>
-	<a href="https://reference.wolfram.com/language">
-		<img alt="Documentation" src="https://img.shields.io/website?down_message=offline&label=Mathematica%20docs&up_color=d11b00&up_message=online&url=https%3a%2f%2freference.wolfram.com%2flanguage"/>
-	</a>
-</p>
-
-Wolfram Mathematica 不是传统意义上的排版工具，而是类似于 MATLAB 的大型计算/编程工具，只不过有笔记功能罢了。
-
-它的排版能力比 Word 更差，导出的 PDF 只能做到类似于 Markdown 的较果。
-
-但 Mathematica 的优点在于可以很方便地输入数学公式，尤其是符号、矩阵等。它还支持丰富的快捷键（尤其是 `Esc` 快捷输入），在特定场合或许会是很好的选择。
-
-*在编数学、物理题的答案时，它是个可以帮你检验答案的工具。*
+> 不再支持，请勿使用。
 
 ### 其它子工具
 
