@@ -1,0 +1,189 @@
+\documentclass[12pt]{ctexart}
+\usepackage{amsmath}
+\usepackage{amssymb}
+\usepackage{amsthm}
+\usepackage{booktabs}
+\usepackage{pifont}
+\usepackage{enumitem}
+\usepackage{esint}
+\usepackage{fancyhdr}
+\usepackage{float}
+\usepackage{fontspec}
+\usepackage{geometry}
+\usepackage{hyperref}
+\usepackage{import}
+\usepackage{indentfirst}
+\usepackage{lastpage}
+\usepackage{nicematrix}
+\usepackage{physics}
+\usepackage{setspace}
+\usepackage{subcaption}
+\usepackage{tikz}
+\usetikzlibrary{shapes}
+\usepackage{titlesec}
+\usepackage{titletoc}
+\usepackage{wrapfig}
+\usepackage{xcolor}
+\usepackage{xparse}
+\usepackage{xstring}
+\usepackage{zhnumber}
+\geometry{a4paper,top=2cm,bottom=3.2cm,inner=2.5cm,outer=3.2cm}
+\setmonofont{Fira Code}
+\setCJKmainfont{Noto Serif CJK SC}
+\setCJKsansfont{Noto Sans CJK SC}
+\setCJKmonofont{Fira Code}
+\DeclareMathOperator{\ee}{\mathrm{e}}
+\DeclareMathOperator{\ii}{\mathrm{i}}
+\DeclareMathOperator{\jj}{\mathrm{jj}}
+\renewcommand{\thesection}{\zhnum{section}}
+\titleformat{\section}{\normalsize}{\bfseries\thesection、}{0.25em}{}
+\titleformat{\subsection}{\normalsize}{\bfseries\arabic{subsection}.}{1em}{}
+\titleformat{\subsubsection}{\normalsize}{\bfseries\hspace{2em}(\arabic{subsubsection})}{.5em}{}
+\allowdisplaybreaks[4]
+\setstretch{1.5}
+\setlength{\parskip}{0.4em}
+\everymath{\displaystyle}
+\NewDocumentCommand{\options}{O{4}mmmm}{
+	\IfEqCase{#1}{
+		{4}{
+			\begin{table}[H]
+				\centering
+				\begin{NiceTabular}[width=\linewidth]{@{}!{\qquad}*{4}{X[1,l]}}
+					A. #2 & B. #3 & C. #4 & D. #5
+				\end{NiceTabular}
+			\end{table}
+		}
+		{2}{
+			\begin{table}[H]
+				\centering
+				\begin{NiceTabular}[width=\linewidth]{@{}!{\qquad}*{2}{X[1,l]}}
+					A. #2 & B. #3 \\
+					C. #4 & D. #5
+				\end{NiceTabular}
+			\end{table}
+		}
+		{1}{
+			\begin{table}[H]
+				\centering
+				\begin{NiceTabular}[width=\linewidth]{@{}!{\qquad}X[1,l]}
+					A. #2 \\
+					B. #3 \\
+					C. #4 \\
+					D. #5
+				\end{NiceTabular}
+			\end{table}
+		}
+	}
+}
+\NewDocumentCommand{\blank}{}{\underline{\qquad}}
+
+\title{北京邮电大学2023-2024学年第二学期\\《高等数学A（下）》期末考试试题（A卷）\\参考答案}
+\author{制作：\textit{cppHusky}}
+\date{}
+\begin{document}
+\pagestyle{fancy}
+\fancyhf{}
+\fancyhead[L]{\footnotesize\sffamily 23-24第二学期\ 高等数学A（下）期末A卷答案}
+\fancyhead[R]{\footnotesize\sffamily 制作: \textit{cppHusky}}
+\fancyfoot[C]{\footnotesize\sffamily 第\thepage 页，共\pageref*{LastPage} 页}
+\fancyfoot[R]{\footnotesize \href{https://byrdocs.org/}{byrdocs.org}}
+\maketitle
+\thispagestyle{fancy}
+\section{填空题 (每小题3分, 共30分)}
+\subsection{\(\frac{2}{3}\).}
+\subsection{发散.}
+\subsection{\(p\ge1\).}
+\subsection{\(\frac{3}{2}\).}
+\subsection{\(4\ee^{4}\).}
+\subsection{\(\frac{x-2}{-3}=\frac{y+1}{-1}=\frac{z-1}{5}\).}
+\subsection{\(0\).}
+\subsection{\(2\pi\).}
+\subsection{\(\frac{3}{4}\).}
+\subsection{\(-1-\ee\).}
+\pagebreak
+\section{(10分)}
+全微分为: \(\dd{z}=\qty[f_{1}+2f_{2}+\varphi'(g)g_{1}]\dd{x}+\qty[-f_{1}+f_{2}+\varphi'(g)g_{2}]\dd{y}\).
+\begin{align*}
+	\pdv{z}{x}{y}=-f_{11}+f_{12}-2f_{21}+2f_{22}+\varphi''(g)g_{1}^{2}+\varphi'(g)g_{12}.
+\end{align*}
+又因为\(f\)的二阶偏导数连续,所以\(f_{12}=f_{21}\), 因此
+\begin{align*}
+	\pdv{z}{x}{y}=-f_{11}-f_{12}+2f_{22}+\varphi''(g)g_{1}^{2}+\varphi'(g)g_{12}.
+\end{align*}\par
+\section{(10分)}
+收敛半径: \(R=\lim_{n\rightarrow\infty}\abs{\frac{(-1)^{n-1}(n+1)n}{(-1)^n(n+2)(n+1)}}=1\).\par
+当\(x=\pm1\)时, \(\lim_{n\rightarrow\infty}(-1)^{n-1}(n+1)n=\infty\), 此时级数不收敛.\par
+综上所述, 级数\(\sum_{n=1}^{\infty}(-1)^{n-1}(n+1)nx^{n}\)的收敛域为\((-1,1)\).\par
+记和函数为\(S(x)\), 则\[\frac{S(x)}{x}=\sum_{n=1}^{\infty}(-1)^{n-1}(n+1)nx^{n-1}=\dv[2]{x}\sum_{n=1}^{\infty}(-x)^{n+1}=\dv[2]{x}\frac{1}{1+x}.\]于是\(S(x)=\frac{2x}{(x+1)^{3}}\).\par
+代入\(x=-\frac{1}{3}\)可以得到\(S\qty(-\frac{1}{3})=\sum_{n=1}^{\infty}\frac{-(n+1)n}{3^{n}}=-\frac{9}{4}\), 所以\(\sum_{n=1}^{\infty}\frac{(n+1)n}{3^{n}}=\frac{9}{4}\).\par
+\section{(10分)}
+先将积分区域分为两部分:
+\begin{align*}
+	\text{I}:{}&1\le x^{2}+y^{2}\le3, x+y\ge0, x\ge y;\\
+	\text{II}:{}&1\le x^{2}+y^{2}\le3, x+y\ge0, x\le y.
+\end{align*}
+因为\(x^{3}\ln(y+\sqrt{y^{2}+1})\)是关于\(x\)和\(y\)的奇函数, 所以对于I区域 (关于\(x\)轴对称) 和II区域 (关于\(y\)轴对称) 各有\[
+	\iint x^{3}\ln(y+\sqrt{y^{2}+1})\dd{x}\dd{y}=0.
+\]
+而这个积分的第一项只需使用极坐标形式求解即可:
+\begin{align*}
+	\iint\frac{x}{1+x^{2}+y^{2}}\dd{x}\dd{y}={}&\iint\frac{\rho^{2}\cos{\theta}}{1+\rho^{2}}\dd{\rho}\dd{\theta}\\
+	={}&\int_{-\frac{\pi}{4}}^{\frac{3\pi}{4}}\dd{\theta}\int_{1}^{3}\frac{\rho^{2}}{1+\rho^{2}}\dd{\rho}\\
+	={}&2-\arctan(3)+\frac{\pi}{4}.
+\end{align*}\par
+\section{(10分)}
+换序即可.
+\begin{align*}
+	{}&\int_{0}^{1}\dd{y}\int_{0}^{1-y}\dd{z}\int_{0}^{1-y-z}(1-x)\ee^{-(1-x-z)^{2}}\dd{x}\\
+	={}&\int_{0}^{1}(1-x)\dd{x}\int_{0}^{1-x}\ee^{-(1-x-z)^{2}}\dd{z}\int_{0}^{1-x-z}\dd{y}\\
+	={}&\int_{0}^{1}(1-x)\dd{x}\int_{0}^{1-x}(1-x-z)\ee^{-(1-x-z)^{2}}\dd{z}\\
+	={}&\frac{1}{2}\int_{0}^{1}(1-x)\qty[1-\ee^{-(1-x)^{2}}]\dd{x}\\
+	={}&\frac{1}{4\ee}.
+\end{align*}\par
+\section{(10分)}
+由格林公式可知,\[
+	\oint_{L}(1-x^{2}y)\dd{x}+(1+xy^{2})\dd{y}=\iint_{S}(y^{2}+x^{2})\dd{x}\dd{y},
+\]其中\(S: x^{2}+y^{2}\le2x\).\par
+再用极坐标形式求解: \[
+	\iint_{S}(y^{2}+x^{2})\dd{x}\dd{y}=\iint_{S'}\rho^{3}\dd{\rho}\dd{\theta}=\int_{-\frac{\pi}{2}}^{\frac{\pi}{2}}\int_{0}^{2\cos{\theta}}\rho^{3}\dd{\rho}\dd{\theta}=\frac{3\pi}{2}.
+\]
+\section{(10分)}
+根据对称性,\[
+	\iint_{\Sigma}(x+x^{3})\dd{x}\dd{y}+(y+y^{3})\dd{z}\dd{x}=0.
+\]\par
+于是\(I=-2\iint_{S}\sqrt{x^{2}+y^{2}}\dd{x}\dd{y}\), 再用极坐标求解得\[
+	I=-2\int_{0}^{2\pi}\dd{\theta}\int_{0}^{1}\rho^{2}\dd{\rho}=-\frac{4\pi}{3}.
+\]
+\section{(10分) (本题答案由 Proleta 给出)}
+\(\grad{f}=(2+y,3+x)\), 所以\(\norm{\grad{f}}=\sqrt{(3+x)^{2}+(2+y)^{2}}\). 要在限制条件\(x^{2}+y^{2}=52\)下求出\(\norm{\grad{f}}\)的最大值, 应使用拉格朗日乘数法.\par
+考虑
+\begin{align*}
+	\begin{cases}
+		g(x,y)=(3+x)^{2}+(2+y)^{2},\\
+		L(x,y,\lambda)=(3+x)^{2}+(2+y)^{2}+\lambda(x^{2}+y^{2}-52),
+	\end{cases}
+\end{align*}
+有
+\begin{align*}
+	\begin{cases}
+		L_{x}=2(x+3)+2\lambda x=0,\\
+		L_{y}=2(y+2)+2\lambda y=0,\\
+		L_{\lambda}=x^{2}+y^{2}-52=0,
+	\end{cases}
+\end{align*}
+解出
+\begin{align*}
+	\begin{cases}
+		x=-6,\\
+		y=-4,\\
+		\lambda=-\frac{1}{2}\\
+	\end{cases}
+	\qq{或}
+	\begin{cases}
+		x=6,\\
+		y=4,\\
+		\lambda=-\frac{3}{2}.\\
+	\end{cases}
+\end{align*}\par
+经过验证, \(\norm{\grad{f(-6,-4)}}=\sqrt{13},\;\norm{\grad{f(6,4)}}=3\sqrt{13}\). 所以\(f(x,y)\)在圆周\(C\)上方向导数的最大值是\(3\sqrt{13}\).\par
+\end{document}
